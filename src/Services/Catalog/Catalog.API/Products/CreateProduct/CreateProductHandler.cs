@@ -21,7 +21,7 @@
                 Category = command.Category,
                 Description = command.Description,
                 ImageFile = command.ImageFile,
-                Price = command.Price,
+                Price = command.Price
             };
 
             //TODO: save to database
