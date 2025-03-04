@@ -1,8 +1,5 @@
 ﻿namespace Catalog.API.Products.GetProducts
 {
-    using System.Threading;
-    using System.Threading.Tasks;
-
     public record GetProductsQuery() : IQuery<GetProductsResult>;
 
     public record GetProductsResult(IEnumerable<Product> Products);
