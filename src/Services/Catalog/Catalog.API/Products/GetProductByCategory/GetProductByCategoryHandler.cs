@@ -1,8 +1,5 @@
 ﻿namespace Catalog.API.Products.GetProductByCategory
 {
-    using System.Threading;
-    using System.Threading.Tasks;
-
     public record GetProductByCategoryQuery(string Category) : IQuery<GetProductByCategoryResult>;
 
     public record GetProductByCategoryResult(IEnumerable<Product> Products);
@@ -18,6 +15,7 @@
                 .Where(p=>p.Category.Contains(query.Category))
                 .ToListAsync(cancellationToken);
 
+            return new GetProductByCategoryResult(products);
         }
     }
 }
