@@ -11,7 +11,7 @@
         public UpdateProductCommandValidator()
         {
             RuleFor(command => command.Id).NotEmpty().WithMessage("Product ID is required");
-            
+
             RuleFor(command => command.Name)
                 .NotEmpty().WithMessage("Name is required")
                 .Length(2, 150).WithMessage("Name must be between 2 and 150 characters");
@@ -20,13 +20,11 @@
         }
     }
 
-    internal class UpdateProductCommandHandler(IDocumentSession session, ILogger<UpdateProductCommandHandler> logger)
+    internal class UpdateProductCommandHandler(IDocumentSession session)
         : ICommandHandler<UpdateProductCommand, UpdateProductResult>
     {
         public async Task<UpdateProductResult> Handle(UpdateProductCommand command, CancellationToken cancellationToken)
         {
-            logger.LogInformation("UpdateProductCommandHandler.Handle called with {@Query}", command);
-
             var product = await session.LoadAsync<Product>(command.Id, cancellationToken);
 
             if (product == null)
