@@ -14,7 +14,7 @@
                 {
                     var command = request.Adapt<UpdateProductCommand>();
 
-                    var result = await sender.Send(command);
+                     var result = await sender.Send(command);
 
                     var response = result.Adapt<UpdateProductResponse>();
 
