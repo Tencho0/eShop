@@ -12,7 +12,7 @@
         }
     }
 
-    public class DeleteBasketCommandHandler(IBasketRespository repository)
+    public class DeleteBasketCommandHandler(IBasketRepository repository)
         : ICommandHandler<DeleteBasketCommand, DeleteBasketResult>
     {
         public async Task<DeleteBasketResult> Handle(DeleteBasketCommand command, CancellationToken cancellationToken)

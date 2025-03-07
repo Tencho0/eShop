@@ -4,7 +4,7 @@
 
     public record GetBasketResult(ShoppingCart Cart);
 
-    public class GetBasketQueryHandler(IBasketRespository repository)
+    public class GetBasketQueryHandler(IBasketRepository repository)
         : IQueryHandler<GetBasketQuery, GetBasketResult>
     {
         public async Task<GetBasketResult> Handle(GetBasketQuery query, CancellationToken cancellationToken)

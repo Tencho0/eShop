@@ -13,7 +13,7 @@
         }
     };
 
-    public class StoreBasketCommandHandler(IBasketRespository repository)
+    public class StoreBasketCommandHandler(IBasketRepository repository)
         : ICommandHandler<StoreBasketCommand, StoreBasketResult>
     {
         public async Task<StoreBasketResult> Handle(StoreBasketCommand command, CancellationToken cancellationToken)
