@@ -7,7 +7,7 @@
     <ProjectGuid>02b95ae6-6a07-4bdd-a29b-08540d0965d6</ProjectGuid>
     <DockerLaunchAction>None</DockerLaunchAction>
     <DockerServiceUrl>{Scheme}://localhost:{ServicePort}</DockerServiceUrl>
-    <DockerServiceName>catalog.api</DockerServiceName>
+    <DockerServiceName>basket.api</DockerServiceName>
   </PropertyGroup>
   <ItemGroup>
     <None Include="docker-compose.override.yml">
