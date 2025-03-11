@@ -1,7 +1,7 @@
 namespace Discount.Grpc.Services
 {
     using Discount.Grpc;
-    using Grpc.Core;
+    using global::Grpc.Core;
 
     public class GreeterService : Greeter.GreeterBase
     {
