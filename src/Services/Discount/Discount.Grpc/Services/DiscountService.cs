@@ -2,6 +2,7 @@
 {
     using Discount.Grpc.Data;
     using Discount.Grpc.Models;
+    using global::Grpc.Core;
     using Mapster;
     using Microsoft.EntityFrameworkCore;
 
@@ -13,7 +14,7 @@
             var coupon = await dbContext.Coupons
                 .FirstOrDefaultAsync(x => x.ProductName == request.ProductName);
 
-            if (coupon == null)
+            if (coupon is null)
                 coupon = new Coupon { ProductName = "No Discount", Amount = 0, Description = "No Discount Desc" };
 
             logger.LogInformation("Discount is retrieved for ProductName : {productName}, Amount : {amount}", coupon.ProductName, coupon.Amount);
@@ -22,9 +23,19 @@
             return couponModel;
         }
 
-        public override Task<CouponModel> CreateDiscount(CreateDiscountRequest request, global::Grpc.Core.ServerCallContext context)
+        public override async Task<CouponModel> CreateDiscount(CreateDiscountRequest request, global::Grpc.Core.ServerCallContext context)
         {
-            return base.CreateDiscount(request, context);
+            var coupon = request.Coupon.Adapt<Coupon>();
+            if (coupon is null)
+                throw new RpcException(new Status(StatusCode.InvalidArgument, "Invalid request object."));
+            
+            dbContext.Coupons.Add(coupon);
+            await dbContext.SaveChangesAsync();
+
+            logger.LogInformation("Discount is successfully created. ProductName : {ProductName}", coupon.ProductName);
+
+            var couponModel = coupon.Adapt<CouponModel>();
+            return couponModel;
         }
 
         public override Task<CouponModel> UpdateDiscount(UpdateDiscountRequest request, global::Grpc.Core.ServerCallContext context)
