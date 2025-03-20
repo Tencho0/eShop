@@ -18,7 +18,6 @@
 
         protected Address()
         {
-
         }
 
         private Address(string firstName, string lastName, string emailAddress, string addressLine, string country, string state, string zipCode)
