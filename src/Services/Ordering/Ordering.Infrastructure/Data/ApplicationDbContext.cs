@@ -1,7 +1,6 @@
 ﻿namespace Ordering.Infrastructure.Data
 {
     using System.Reflection;
-    using Microsoft.EntityFrameworkCore;
     using Ordering.Domain.Models;
 
     public class ApplicationDbContext : DbContext
