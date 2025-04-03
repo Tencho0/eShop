@@ -1,4 +1,4 @@
-﻿namespace Ordering.Application.Orders.Queries.GetOrderByName
+﻿namespace Ordering.Application.Orders.Queries.GetOrdersByName
 {
     using Ordering.Application.Extensions;
 
