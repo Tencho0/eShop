@@ -1,8 +1,6 @@
 ﻿namespace Ordering.Application.Orders.Commands.CreateOrder
 {
-    using BuildingBlocks.CQRS;
     using FluentValidation;
-    using Ordering.Application.Dtos;
 
     public record CreateOrderCommand(OrderDto Order) : ICommand<CreateOrderResult>;
 

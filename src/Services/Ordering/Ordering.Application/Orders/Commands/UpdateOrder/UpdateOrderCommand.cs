@@ -1,8 +1,6 @@
 ﻿namespace Ordering.Application.Orders.Commands.UpdateOrder
 {
-    using BuildingBlocks.CQRS;
     using FluentValidation;
-    using Ordering.Application.Dtos;
 
     public record UpdateOrderCommand(OrderDto Order)
         : ICommand<UpdateOrderResult>;

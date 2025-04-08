@@ -22,7 +22,7 @@
         {
             get
             {
-                var address1 = Address.Of("tencho", "ozkaya", "tencho@gmail.com", "Bahcelievler No:4", "Turkey", "Istanbul", "38050");
+                var address1 = Address.Of("tencho", "bostandzhiev", "tencho@gmail.com", "Bahcelievler No:4", "Turkey", "Istanbul", "38050");
                 var address2 = Address.Of("john", "doe", "john@gmail.com", "Broadway No:1", "England", "Nottingham", "08050");
 
                 var payment1 = Payment.Of("tencho", "5555555555554444", "12/28", "355", 1);
