@@ -28,7 +28,7 @@
             {
                 return new CheckoutBasketResult(false);
             }
-
+             
             var eventMessage = command.BasketCheckoutDto.Adapt<BasketCheckoutEvent>();
             eventMessage.TotalPrice = basket.TotalPrice;
 
